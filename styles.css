@@ -225,34 +225,51 @@ section {
 
 .social-links {
     display: flex;
-    gap: 1rem;
     justify-content: center;
-    margin-top: 1rem;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
 }
 
 .social-links a {
-    color: #333;
-    font-size: 1.5rem;
-    transition: color 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
 }
 
 .social-links a:hover {
-    color: #007bff;
+    color: var(--primary-color);
+    background: var(--bg-light);
+    transform: translateY(-2px);
+}
+
+.social-links i {
+    font-size: 1.5rem;
+}
+
+.social-links span {
+    font-size: 0.85rem;
+    font-weight: 500;
 }
 
 /* Projects Section */
 .projects-list {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
     margin-top: 2rem;
 }
 
 .project-item {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: center;
-    padding: 1.5rem;
+    padding: 0.8rem;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     background: white;
@@ -263,8 +280,8 @@ section {
 }
 
 .project-image {
-    flex: 0 0 300px;
-    height: 300px;
+    flex: 0 0 220px;
+    height: 180px;
     overflow: hidden;
     border-radius: 8px;
 }
@@ -391,38 +408,82 @@ section {
 /* Sports Section */
 .sports-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .sport-card {
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    background: var(--bg-white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
 .sport-card:hover {
     transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
 }
 
-.sport-card i {
-    font-size: 2.5rem;
-    color: #2196F3;
+.sport-icon {
+    background: var(--gradient-primary);
+    padding: 2rem;
+    text-align: center;
+}
+
+.sport-icon i {
+    font-size: 3rem;
+    color: white;
+}
+
+.sport-content {
+    padding: 1.5rem;
+}
+
+.sport-content h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.sport-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
     margin-bottom: 1rem;
 }
 
-.sport-card h3 {
-    margin: 1rem 0;
-    color: #333;
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
 }
 
-.sport-card p {
-    color: #666;
+.stat i {
+    color: var(--primary-color);
+}
+
+.sport-content p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
     line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sports-grid {
+        grid-template-columns: 1fr;
+        padding: 0.5rem;
+    }
+    
+    .sport-card {
+        max-width: 400px;
+        margin: 0 auto;
+    }
 }
 
 /* Footer */
@@ -610,13 +671,17 @@ footer {
 
 /* Color scheme update for robotics theme */
 :root {
-    --primary-color: #0066cc;    /* Deeper blue for tech */
-    --secondary-color: #00a0dc;  /* LinkedIn blue for professionalism */
-    --accent-color: #2ecc71;     /* Green for highlights */
-    --text-primary: #2c3e50;     /* Dark blue-grey for text */
-    --text-secondary: #666;      /* Grey for secondary text */
-    --bg-light: #f8f9fa;         /* Light grey for backgrounds */
-    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --primary-color: #2563eb;    /* 更现代的蓝色 */
+    --secondary-color: #3b82f6;  /* 浅一点的蓝色 */
+    --accent-color: #10b981;     /* 清新的绿色 */
+    --text-primary: #1e293b;     /* 深色文字 */
+    --text-secondary: #475569;   /* 次要文字 */
+    --bg-light: #f8fafc;         /* 背景色 */
+    --bg-white: #ffffff;         /* 纯白 */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+    --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
 }
 
 /* Update existing color references */
@@ -1013,4 +1078,202 @@ nav {
 
 .nav-links a:hover::after {
     width: 100%;
+}
+
+/* 更新配色方案 */
+:root {
+    --primary-color: #2563eb;    /* 更现代的蓝色 */
+    --secondary-color: #3b82f6;  /* 浅一点的蓝色 */
+    --accent-color: #10b981;     /* 清新的绿色 */
+    --text-primary: #1e293b;     /* 深色文字 */
+    --text-secondary: #475569;   /* 次要文字 */
+    --bg-light: #f8fafc;         /* 背景色 */
+    --bg-white: #ffffff;         /* 纯白 */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+    --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+/* 导航栏美化 */
+nav {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.nav-links a {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: var(--bg-light);
+    color: var(--primary-color);
+}
+
+/* 个人资料部分美化 */
+.profile-photo {
+    width: 220px;
+    height: 220px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: translateY(-5px);
+}
+
+/* 研究兴趣美化 */
+.interests-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.interests-list li {
+    background: var(--bg-white);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.interests-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+}
+
+/* 项目部分美化 */
+.project-item {
+    background: var(--bg-white);
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-image {
+    border-radius: 12px;
+}
+
+.project-link {
+    background: var(--gradient-primary);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* 新闻部分美化 */
+.news-list li {
+    background: var(--bg-white);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.news-list li:hover {
+    transform: translateX(5px);
+    border-color: var(--primary-color);
+}
+
+.news-list .date {
+    background: var(--bg-light);
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+}
+
+/* 学术服务美化 */
+.service-list li {
+    background: var(--bg-white);
+    border-radius: 12px;
+    padding: 1.2rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.service-list li:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-md);
+}
+
+/* 页脚美化 */
+footer {
+    background: var(--bg-light);
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+/* 全局文字样式优化 */
+h1, h2, h3 {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+    .project-item,
+    .news-list li,
+    .service-list li {
+        transform: none !important;
+    }
+    
+    .interests-list {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 4px;
+}
+
+/* 选中文字的样式 */
+::selection {
+    background: var(--primary-color);
+    color: white;
+}
+
+.email {
+    margin: 1rem 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    text-align: center;
 }
