@@ -5,181 +5,322 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chuanyu Li - Personal Homepage</title>
     <link rel="icon" type="image/x-icon" href="images/profile/bear_16x16.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: sans-serif;
-            max-width: 800px;
+            font-family: 'Inter', system-ui, sans-serif;
+            max-width: 860px;
             margin: 0 auto;
-            padding: 40px 20px;
-            color: #333;
-            line-height: 1.5;
+            padding: 56px 24px 80px;
+            color: #1a1a1a;
+            line-height: 1.6;
+            background: #fff;
+            font-size: 15px;
         }
 
-        header {
-            margin-bottom: 30px;
-        }
-
-        .name {
-            font-size: 2.3em;
-            margin-bottom: 12px;
-        }
-
-        .contact-links {
-            margin: 20px 0;
-        }
-
-        .contact-links a {
-            margin-right: 25px;
+        a {
+            color: #2563eb;
             text-decoration: none;
-            color: #2c3e50;
         }
 
-        .contact-links a:hover {
-            color: #1a73e8;
+        a:hover {
             text-decoration: underline;
         }
 
-        .project {
-            display: grid;
-            grid-template-columns: 160px 1fr;
-            gap: 25px;
-            margin-bottom: 10px;
-            padding: 15px;
-            align-items: start;
+        /* ── Header ── */
+        header {
+            margin-bottom: 52px;
         }
 
-        .project-image-container {
+        .name {
+            font-size: 2.2em;
+            font-weight: 600;
+            margin: 0 0 6px;
+            letter-spacing: -0.5px;
+            color: #111;
+        }
+
+        .affiliation {
+            color: #555;
+            font-size: 0.97em;
+            margin: 0 0 18px;
+        }
+
+        .affiliation a {
+            color: #555;
+        }
+
+        .affiliation a:hover {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+
+        .bio {
+            max-width: 680px;
+            color: #333;
+            margin-bottom: 22px;
+        }
+
+        .bio p {
+            margin: 0 0 10px;
+        }
+
+        .bio ul {
+            margin: 4px 0 10px 0;
+            padding-left: 22px;
+        }
+
+        .bio li {
+            margin-bottom: 3px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .contact-links a {
+            display: inline-block;
+            padding: 4px 13px;
+            border: 1.5px solid #d1d5db;
+            border-radius: 20px;
+            color: #374151;
+            font-size: 0.88em;
+            font-weight: 500;
+            transition: border-color 0.15s, color 0.15s, background 0.15s;
+        }
+
+        .contact-links a:hover {
+            border-color: #2563eb;
+            color: #2563eb;
+            background: #eff6ff;
+            text-decoration: none;
+        }
+
+        /* ── Section headings ── */
+        h2.section-title {
+            font-size: 0.78em;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #6b7280;
+            margin: 0 0 18px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        section {
+            margin-bottom: 48px;
+        }
+
+        .section-note {
+            font-size: 0.85em;
+            color: #9ca3af;
+            margin: -10px 0 18px;
+        }
+
+        /* ── Paper / Project cards ── */
+        .paper-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .paper {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 22px;
+            padding: 14px 10px;
+            border-radius: 8px;
+            align-items: start;
+            transition: background 0.15s;
+        }
+
+        .paper:hover {
+            background: #f9fafb;
+        }
+
+        .paper-thumb {
             width: 160px;
-            height: 140px;
+            height: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            border-radius: 6px;
+            background: #f3f4f6;
+            flex-shrink: 0;
         }
 
-        .project-image {
+        .paper-thumb img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            border-radius: 0;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
         }
 
-        .research-section:nth-of-type(2) .project-image {
+        .paper-thumb.cover img {
             object-fit: cover;
         }
 
-        .project-content {
+        .paper-body {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
+            gap: 5px;
+            padding-top: 2px;
         }
 
-        .project-title {
-            font-size: 1.2em;
-            margin: 0 0 8px;
-            line-height: 1.3;
+        .paper-title {
+            font-size: 1.0em;
+            font-weight: 600;
+            color: #111;
+            line-height: 1.4;
+            margin: 0;
         }
 
-        .project-authors {
-            color: #666;
-            font-size: 0.9em;
-            margin: 0 0 6px;
-            line-height: 1.3;
+        .paper-authors {
+            font-size: 0.88em;
+            color: #6b7280;
+            line-height: 1.45;
+            margin: 0;
         }
 
-        .project-links {
-            margin-top: 8px;
-        }
-
-        .project-links a {
-            color: #2c3e50;
-            text-decoration: none;
+        .paper-venue {
+            display: inline-block;
+            font-size: 0.78em;
             font-weight: 500;
-            margin-right: 12px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: #fef3c7;
+            color: #92400e;
+            width: fit-content;
+            margin-top: 2px;
         }
 
-        .project-links a:hover {
-            color: #1a73e8;
-            text-decoration: underline;
-        }
-        
-        .project-links .preprint-line {
-            margin-bottom: 8px;
-            display: block;
-            color: #666;
-            font-style: italic;
+        .paper-venue.conf {
+            background: #dbeafe;
+            color: #1e40af;
         }
 
-        .project-links .resources-line {
-            display: block;
+        .paper-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 4px;
         }
 
-        @media (max-width: 768px) {
-            body {
-                padding: 20px 15px;
-            }
-            .project {
-                grid-template-columns: 1fr;
-                gap: 15px;
-                margin-bottom: 35px;
-            }
-            .project-image {
-                max-width: 240px;
-            }
+        .paper-links a {
+            display: inline-block;
+            font-size: 0.82em;
+            font-weight: 500;
+            padding: 2px 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            color: #374151;
+            transition: border-color 0.15s, color 0.15s, background 0.15s;
         }
 
-        .research-section:first-of-type .project-content {
-            min-height: 140px;
-            padding: 0;
+        .paper-links a:hover {
+            border-color: #2563eb;
+            color: #2563eb;
+            background: #eff6ff;
+            text-decoration: none;
+        }
+
+        /* ── Education ── */
+        .edu-list {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            gap: 18px;
         }
 
-        .research-section:first-of-type .project-links {
-            margin-top: auto;
-            padding-top: 8px;
+        .edu-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
         }
 
-        .education-item {
-            padding: 15px;
-            margin-bottom: 10px;
+        .edu-logo {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            flex-shrink: 0;
+            margin-top: 2px;
         }
 
-        .education-title {
-            font-size: 1.3em;
-            margin: 0 0 8px;
-            color: #2c3e50;
+        .edu-logo-placeholder {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
         }
 
-        .education-degree {
-            color: #666;
-            font-size: 1em;
-            margin: 0 0 6px;
+        .edu-school {
+            font-weight: 600;
+            font-size: 1.0em;
+            color: #111;
         }
 
-        .education-year {
-            color: #666;
-            font-size: 0.95em;
+        .edu-school a {
+            color: #111;
+        }
+
+        .edu-school a:hover {
+            color: #2563eb;
+        }
+
+        .edu-degree {
+            font-size: 0.9em;
+            color: #6b7280;
+            margin-top: 2px;
+        }
+
+        .edu-year {
+            font-size: 0.85em;
+            color: #9ca3af;
+            margin-top: 1px;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            body {
+                padding: 32px 16px 60px;
+            }
+
+            .paper {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .paper-thumb {
+                width: 100%;
+                height: 160px;
+            }
         }
     </style>
 </head>
 <body>
+
     <header>
         <h1 class="name">Chuanyu Li</h1>
-        
+        <p class="affiliation">
+            I build intelligent robotic systems through tactile and visual perception.
+        </p>
+
         <div class="bio">
-            <p>I am a research assistant at Tsinghua University's RVSA Lab, advised by Prof. <a href="https://callmeray.github.io/homepage/">Rui Chen</a> and Prof. <a href="https://me.tsinghua.edu.cn/info/1100/3636.htm">Jing Xu</a>. 
-            My research focuses on 
+            <p>My research focuses on</p>
             <ul>
-                <li><b>Novel tactile sensor design</b></li>
-                <li><b>Tactile vision fusion for robotic manipulation</b></li>
-                <li><b>Universal robotic data collection tools</b></li>
+                <li><strong>Novel tactile sensor design</strong></li>
+                <li><strong>Tactile-vision fusion for robotic manipulation</strong></li>
+                <li><strong>Universal robotic data collection tools</strong></li>
             </ul>
-            
-            I am also a passionate sports enthusiast, having run over 7000km in total. I enjoy running, swimming, hiking, trekking, and cycling.</p>
+            <p>I am also a passionate sports enthusiast, having run over 7000 km in total. I enjoy running, swimming and hiking.</p>
         </div>
 
         <nav class="contact-links">
@@ -191,112 +332,154 @@
     </header>
 
     <main>
-        <section class="research-section">
-            <h2>RESEARCH</h2>
-            <div class="note">* indicates equal contribution</div>
 
-            
-            <div class="project">
-                <div class="project-image-container">
-                    <img src="images/pubs/vitamin-b.png" alt="VIiTaMIn-B" class="project-image">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">ViTaMIn-B: A Reliable and Efficient Visuo-Tactile Bimanual Manipulation Interface</h3>
-                    <div class="project-authors">
-                        <em><strong>Chuanyu Li</strong></em>*, Chaoyi Liu*, Daotan Wang, Shuyu Zhang, Lusong Li, Zecui Zeng, Fangchen Liu, Jing Xu, Rui Chen
-                    </div>
-                    <div class="project-links">
-                        <span class="preprint-line">Preprint</span>
-                        <span class="resources-line"><a href="https://arxiv.org/abs/2511.05858">Paper</a> <a href="https://github.com/chuanyune/ViTaMIn-B_code?tab=readme-ov-file">Code</a> <a href="https://chuanyune.github.io/ViTaMIn-B_page/">Page</a></span>
-                    </div>
-                </div>
-            </div>
+        <section>
+            <h2 class="section-title">Research</h2>
+            <p class="section-note">* indicates equal contribution</p>
 
-            <div class="project">
-                <div class="project-image-container">
-                    <img src="images/pubs/vitamin.png" alt="VIiTaMIn" class="project-image">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">ViTaMIn: Learning Contact-Rich Tasks Through Portable Visuotactile Manipulation Interface</h3>
-                    <div class="project-authors">
-                        Fangchen Liu*, <em><strong>Chuanyu Li</strong></em>*, Yihua Qin, Jing Xu, Pieter Abbeel, Rui Chen
-                    </div>
-                    <div class="project-links">
-                        <span class="preprint-line">Preprint</span>
-                        <span class="resources-line"><a href="https://arxiv.org/abs/2504.06156">Paper</a> <a href="#">Code (Soon)</a> <a href="https://chuanyune.github.io/ViTaMIn_page/">Page</a></span>
-                    </div>
-                </div>
-            </div>
+            <div class="paper-list">
 
-            <div class="project">
-                <div class="project-image-container">
-                    <img src="images/pubs/mani_2025_head.PNG" alt="ManiSkill-ViTac Challenge" class="project-image">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">ManiSkill-ViTac 2025: Challenge on Manipulation Skill Learning with Vision and Tactile Sensing</h3>
-                    <div class="project-authors">
-                        <em><strong>Chuanyu Li</strong></em>, Renjun Dang, Xiang Li, Zhiyuan Wu, Jing Xu, Hamidreza Kasaei, Roberto Calandra, Nathan Lepora, Shan Luo, Hao Su, Rui Chen.
+                <div class="paper">
+                    <div class="paper-thumb">
+                        <img src="images/pubs/vitamin-b.png" alt="ViTaMIn-B">
                     </div>
-                    <div class="project-links">
-                        <span class="preprint-line">Preprint</span>
-                        <span class="resources-line"><a href="https://arxiv.org/abs/2411.12503">Paper</a> <a href="https://github.com/chuanyune/ManiSkill-ViTac2025">Code</a></span>
+                    <div class="paper-body">
+                        <h3 class="paper-title">ViTaMIn-B: A Reliable and Efficient Visuo-Tactile Bimanual Manipulation Interface</h3>
+                        <p class="paper-authors"><strong>Chuanyu Li</strong>*, Chaoyi Liu*, Daotan Wang, Shuyu Zhang, Lusong Li, Zecui Zeng, Fangchen Liu, Jing Xu, Rui Chen</p>
+                        <span class="paper-venue">Preprint</span>
+                        <div class="paper-links">
+                            <a href="https://arxiv.org/abs/2511.05858">Paper</a>
+                            <a href="https://github.com/chuanyune/ViTaMIn-B_code?tab=readme-ov-file">Code</a>
+                            <a href="https://chuanyune.github.io/ViTaMIn-B_page/">Project Page</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section class="research-section">
-            <h2>PROJECTS</h2>
-
-            <div class="project">
-                <div class="project-image-container">
-                    <img src="images/projs/mani_2025_head.PNG" alt="ManiSkill-ViTac 2025" class="project-image">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">ManiSkill-ViTac 2025: Challenge on Manipulation Skill Learning With Vision and Tactile Sensing</h3>
-                    <div class="project-description" style="color: #666; font-size: 0.95em; margin-bottom: 8px;">
-                        ICRA 2025 Workshop (challenge leader)
+                <div class="paper">
+                    <div class="paper-thumb">
+                        <img src="images/pubs/vitamin.png" alt="ViTaMIn">
                     </div>
-                    <div class="project-links">
-                        <span class="resources-line">
-                            <a href="https://ai-workshops.github.io/maniskill-vitac-challenge-2025/">Page</a>
+                    <div class="paper-body">
+                        <h3 class="paper-title">ViTaMIn: Learning Contact-Rich Tasks Through Portable Visuotactile Manipulation Interface</h3>
+                        <p class="paper-authors">Fangchen Liu*, <strong>Chuanyu Li</strong>*, Yihua Qin, Jing Xu, Pieter Abbeel, Rui Chen</p>
+                        <span class="paper-venue">Preprint</span>
+                        <div class="paper-links">
+                            <a href="https://arxiv.org/abs/2504.06156">Paper</a>
+                            <a href="#">Code (Soon)</a>
+                            <a href="https://chuanyune.github.io/ViTaMIn_page/">Project Page</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper">
+                    <div class="paper-thumb cover">
+                        <img src="images/pubs/mani_2025_head.PNG" alt="ManiSkill-ViTac 2025">
+                    </div>
+                    <div class="paper-body">
+                        <h3 class="paper-title">ManiSkill-ViTac 2025: Challenge on Manipulation Skill Learning with Vision and Tactile Sensing</h3>
+                        <p class="paper-authors"><strong>Chuanyu Li</strong>, Renjun Dang, Xiang Li, Zhiyuan Wu, Jing Xu, Hamidreza Kasaei, Roberto Calandra, Nathan Lepora, Shan Luo, Hao Su, Rui Chen</p>
+                        <span class="paper-venue">Preprint</span>
+                        <div class="paper-links">
+                            <a href="https://arxiv.org/abs/2411.12503">Paper</a>
                             <a href="https://github.com/chuanyune/ManiSkill-ViTac2025">Code</a>
-                        </span>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="project">
-                <div class="project-image-container">
-                    <img src="images/projs/mani_2024_head.gif" alt="ManiSkill-ViTac 2024" class="project-image">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">ManiSkill-ViTac: Vision-based-Tactile Manipulation Skill Learning Challenge 2024</h3>
-                    <div class="project-description" style="color: #666; font-size: 0.95em; margin-bottom: 8px;">
-                        ICRA 2024 Workshop (challenge organizer)
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Projects</h2>
+
+            <div class="paper-list">
+
+                <div class="paper">
+                    <div class="paper-thumb cover">
+                        <img src="images/projs/mani_2025_head.PNG" alt="ManiSkill-ViTac 2025">
                     </div>
-                    <div class="project-links">
-                        <span class="resources-line">
-                            <a href="https://ai-workshops.github.io/maniskill-vitac-challenge-2024/">Page</a>
+                    <div class="paper-body">
+                        <h3 class="paper-title">ManiSkill-ViTac 2025: Challenge on Manipulation Skill Learning With Vision and Tactile Sensing</h3>
+                        <p class="paper-authors">ICRA 2025 Workshop · Challenge Leader</p>
+                        <span class="paper-venue conf">ICRA 2025</span>
+                        <div class="paper-links">
+                            <a href="https://ai-workshops.github.io/maniskill-vitac-challenge-2025/">Project Page</a>
+                            <a href="https://github.com/chuanyune/ManiSkill-ViTac2025">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper">
+                    <div class="paper-thumb cover">
+                        <img src="images/projs/mani_2024_head.gif" alt="ManiSkill-ViTac 2024">
+                    </div>
+                    <div class="paper-body">
+                        <h3 class="paper-title">ManiSkill-ViTac: Vision-based Tactile Manipulation Skill Learning Challenge 2024</h3>
+                        <p class="paper-authors">ICRA 2024 Workshop · Challenge Organizer</p>
+                        <span class="paper-venue conf">ICRA 2024</span>
+                        <div class="paper-links">
+                            <a href="https://ai-workshops.github.io/maniskill-vitac-challenge-2024/">Project Page</a>
                             <a href="https://github.com/callmeray/ManiSkill-ViTac2024">Code</a>
-                        </span>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <section class="research-section">
-            <h2>EDUCATION</h2>
-            <div class="education-item">
-                <h3 class="education-title"><a href="https://www.scu.edu.cn/">Sichuan University</a></h3>
-                <div class="education-degree">
-                    B.S. in Mechanical Engineering
+        <section>
+            <h2 class="section-title">Experience</h2>
+
+            <div class="edu-list">
+
+                <div class="edu-item">
+                    <img class="edu-logo" src="images/profile/Tsinghua_University.png" alt="Tsinghua University">
+                    <div class="edu-body">
+                        <div class="edu-school">Tsinghua University</div>
+                        <div class="edu-degree">Research Assistant · RVSA Lab, advised by Prof. <a href="https://callmeray.github.io/homepage/">Rui Chen</a></div>
+                        <div class="edu-year">2024 – 2025</div>
+                    </div>
                 </div>
-                <div class="education-year">
-                    2021 - 2025
+
+                <!-- <div class="edu-item">
+                    <div class="edu-logo-placeholder"></div>
+                    <div class="edu-body">
+                        <div class="edu-school">Lightwheel</div>
+                        <div class="edu-degree">YOUR TITLE</div>
+                        <div class="edu-year">20XX – 20XX</div>
+                    </div>
                 </div>
+
+                <div class="edu-item">
+                    <div class="edu-logo-placeholder"></div>
+                    <div class="edu-body">
+                        <div class="edu-school">Sudo 科技</div>
+                        <div class="edu-degree">YOUR TITLE</div>
+                        <div class="edu-year">20XX – 20XX</div>
+                    </div>
+                </div> -->
+
             </div>
         </section>
+
+        <section>
+            <h2 class="section-title">Education</h2>
+
+            <div class="edu-list">
+
+                <div class="edu-item">
+                    <img class="edu-logo" src="images/profile/Sichuan_University.png" alt="Sichuan University">
+                    <div class="edu-body">
+                        <div class="edu-school"><a href="https://www.scu.edu.cn/">Sichuan University</a></div>
+                        <div class="edu-degree">B.S. in Mechanical Engineering</div>
+                        <div class="edu-year">2021 – 2025</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
     </main>
+
 </body>
 </html>
