@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chuanyu Li - Personal Homepage</title>
-    <meta name="description" content="Chuanyu Li's personal homepage. Research on tactile sensor design, visuo-tactile fusion, and robotic manipulation for embodied intelligence.">
-    <meta property="og:title" content="Chuanyu Li - Personal Homepage">
-    <meta property="og:description" content="Research on tactile sensor design, visuo-tactile fusion, and robotic manipulation for embodied intelligence.">
+    <title>Chuanyu's Homepage</title>
+    <meta name="description" content="Chuanyu Li builds tactile sensing systems for robots, from sensor design and visuotactile manipulation to product development.">
+    <meta property="og:title" content="Chuanyu's Homepage">
+    <meta property="og:description" content="Tactile sensing, robotic manipulation, and hardware products. Selected work and experience of Chuanyu Li.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://chuanyune.github.io/">
     <meta property="og:image" content="https://chuanyune.github.io/images/profile/chuanyu-profile-identification.jpg">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Chuanyu Li - Personal Homepage">
-    <meta name="twitter:description" content="Research on tactile sensor design, visuo-tactile fusion, and robotic manipulation for embodied intelligence.">
+    <meta name="twitter:title" content="Chuanyu's Homepage">
+    <meta name="twitter:description" content="Tactile sensing, robotic manipulation, and hardware products. Selected work and experience of Chuanyu Li.">
     <meta name="twitter:image" content="https://chuanyune.github.io/images/profile/chuanyu-profile-identification.jpg">
     <link rel="icon" type="image/x-icon" href="images/profile/bear_16x16.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,11 +27,15 @@
             font-family: 'Inter', system-ui, sans-serif;
             max-width: 860px;
             margin: 0 auto;
-            padding: 56px 24px 80px;
+            padding: 24px 24px 64px;
             color: #1a1a1a;
             line-height: 1.6;
             background: #fff;
-            font-size: 15px;
+            font-size: 16px;
+        }
+
+        html {
+            scroll-padding-top: 24px;
         }
 
         a {
@@ -43,8 +47,94 @@
             text-decoration: underline;
         }
 
+        a:focus-visible, summary:focus-visible {
+            outline: 2px solid #2563eb;
+            outline-offset: 4px;
+        }
+
+        /* ── Page navigation ── */
+        .site-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 0.875rem;
+        }
+
+        .site-nav a, .site-nav summary {
+            color: #555;
+        }
+
+        .site-nav .nav-home {
+            color: #111;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .work-menu {
+            position: relative;
+        }
+
+        .work-menu summary {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        .work-menu summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .work-menu summary::after {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-right: 1px solid currentColor;
+            border-bottom: 1px solid currentColor;
+            transform: translateY(-2px) rotate(45deg);
+        }
+
+        .work-menu[open] summary::after {
+            transform: translateY(2px) rotate(225deg);
+        }
+
+        .menu-items {
+            position: absolute;
+            top: calc(100% + 12px);
+            right: 0;
+            z-index: 2;
+            min-width: 170px;
+            padding: 6px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            background: #fff;
+            box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
+        }
+
+        .menu-items a {
+            display: block;
+            padding: 8px 10px;
+            border-radius: 3px;
+        }
+
+        .menu-items a:hover {
+            background: #f3f4f6;
+            text-decoration: none;
+        }
+
         /* ── Header ── */
         header {
+            padding-top: 42px;
             margin-bottom: 52px;
         }
 
@@ -81,13 +171,9 @@
             margin: 0 0 10px;
         }
 
-        .bio ul {
-            margin: 4px 0 10px 0;
-            padding-left: 22px;
-        }
-
-        .bio li {
-            margin-bottom: 3px;
+        .bio .personal-note {
+            color: #6b7280;
+            font-size: 0.875rem;
         }
 
         .contact-links {
@@ -132,8 +218,8 @@
         }
 
         .section-note {
-            font-size: 0.85em;
-            color: #9ca3af;
+            font-size: 0.8125rem;
+            color: #6b7280;
             margin: -10px 0 18px;
         }
 
@@ -203,20 +289,9 @@
         }
 
         .paper-venue {
-            display: inline-block;
-            font-size: 0.78em;
-            font-weight: 500;
-            padding: 2px 8px;
-            border-radius: 4px;
-            background: #fef3c7;
-            color: #92400e;
-            width: fit-content;
+            font-size: 0.8125rem;
+            color: #6b7280;
             margin-top: 2px;
-        }
-
-        .paper-venue.conf {
-            background: #dbeafe;
-            color: #1e40af;
         }
 
         .paper-links {
@@ -228,7 +303,7 @@
 
         .paper-links a {
             display: inline-block;
-            font-size: 0.82em;
+            font-size: 0.875rem;
             font-weight: 500;
             padding: 2px 10px;
             border: 1px solid #d1d5db;
@@ -266,17 +341,11 @@
         }
 
         .exp-logo {
-            width: 72px;
-            height: 72px;
+            width: 48px;
+            height: 48px;
             object-fit: contain;
             flex-shrink: 0;
             margin-top: 0;
-        }
-
-        .edu-logo-placeholder {
-            width: 48px;
-            height: 48px;
-            flex-shrink: 0;
         }
 
         .edu-school {
@@ -301,21 +370,23 @@
 
         .edu-year {
             font-size: 0.85em;
-            color: #9ca3af;
-            margin-top: 1px;
-        }
-
-        .edu-desc {
-            font-size: 0.88em;
             color: #6b7280;
-            margin-top: 4px;
-            line-height: 1.5;
+            margin-top: 1px;
         }
 
         /* ── Responsive ── */
         @media (max-width: 640px) {
             body {
-                padding: 32px 16px 60px;
+                padding: 20px 16px 48px;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            header {
+                padding-top: 32px;
+                margin-bottom: 40px;
             }
 
             .paper {
@@ -328,27 +399,43 @@
                 height: 160px;
             }
         }
+
+        @media (max-width: 380px) {
+            .site-nav {
+                gap: 12px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <header>
+    <nav class="site-nav" aria-label="Page navigation">
+        <a class="nav-home" href="#about">Chuanyu's Homepage</a>
+        <div class="nav-links">
+            <details class="work-menu">
+                <summary>Explore</summary>
+                <div class="menu-items">
+                    <a href="#work">Selected Work</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#education">Education</a>
+                </div>
+            </details>
+        </div>
+    </nav>
+
+    <header id="about">
         <h1 class="name">Chuanyu Li</h1>
         <p class="affiliation">
-            I build intelligent robotic systems through tactile and visual perception.
+            Tactile sensing, robotic manipulation, and hardware products.
         </p>
 
         <div class="bio">
-            <p>My research focuses on</p>
-            <ul>
-                <li><strong>Novel tactile sensor design</strong></li>
-                <li><strong>Tactile-vision fusion for robotic manipulation</strong></li>
-                <li><strong>Universal robotic data collection tools</strong></li>
-            </ul>
-            <p>I am also a passionate sports enthusiast, having run over 7000 km in total. I enjoy running, swimming and hiking.</p>
+            <p>I build tactile sensing systems for robots, from sensor design to product development. My work spans vision-based tactile sensing, visuotactile manipulation, and tools for robotic data collection.</p>
+            <p class="personal-note">Outside work, I run, swim, and hike. I have logged over 7,000 km of running.</p>
+            <p>I'm always happy to connect and explore opportunities for collaboration.</p>
         </div>
 
-        <nav class="contact-links">
+        <nav class="contact-links" aria-label="Contact and profiles">
             <a href="mailto:chuanyu.ne79@gmail.com">Email</a>
             <a href="https://scholar.google.com/citations?user=tlP6tK8AAAAJ">Google Scholar</a>
             <a href="https://github.com/chuanyune">GitHub</a>
@@ -358,11 +445,43 @@
 
     <main>
 
-        <section>
-            <h2 class="section-title">Research</h2>
+        <section id="work" aria-labelledby="work-title">
+            <h2 class="section-title" id="work-title">Selected Work</h2>
             <p class="section-note">* indicates equal contribution</p>
 
             <div class="paper-list">
+
+                <div class="paper">
+                    <div class="paper-thumb">
+                        <img src="images/pubs/tacinf.png" alt="Tacinf infrastructure for tactile data collection, policy learning, simulation, and robot deployment" width="1200" height="526">
+                    </div>
+                    <div class="paper-body">
+                        <h3 class="paper-title">Tacinf: A Unified Tactile Infrastructure for Robot Manipulation</h3>
+                        <p class="paper-authors">Qiwei Wu*, Xiangyu Chen*, Xin Xiang*, Rui Zhang*, Yihang Kang, Weiran Chen, Zikang Xie, Yangfan Li, Tao Wang, Xiangzheng Wang, Tianyi Bi, Zhiyan Zhang, Xianpeng Wang, Mingqian Zhou, Yan Yu, <strong>Chuanyu Li</strong>, Wenjie Zhang, Tao Li, Weihua Zhang, Renjing Xu, Junjie Lai</p>
+                        <span class="paper-venue">2026 · Technical report</span>
+                        <div class="paper-links">
+                            <a href="https://arxiv.org/abs/2611.29240">arXiv</a>
+                            <a href="https://github.com/NathanWu7/T2-VLA">Policy Code</a>
+                            <a href="https://tacinf.github.io/">Project Page</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper">
+                    <div class="paper-thumb">
+                        <img src="images/pubs/revosim.png" alt="RevoSim contact simulation with tactile maps and marker-displacement observations" width="680" height="510">
+                    </div>
+                    <div class="paper-body">
+                        <h3 class="paper-title">RevoSim: Scalable Multimodal Tactile Simulation for Dexterous Manipulation</h3>
+                        <p class="paper-authors">Ke Zhang, Lixin Xu, Ziyi Wang, Xiyue Dong, Jie Tan, Lianghu Shao, Xianpeng Wang, <strong>Chuanyu Li</strong>, Renjing Xu</p>
+                        <span class="paper-venue">2026 · Preprint · IROS Workshop Spotlight</span>
+                        <div class="paper-links">
+                            <a href="https://arxiv.org/abs/2611.08939">arXiv</a>
+                            <a href="https://github.com/BrainCoTech/RevoSim">Code</a>
+                            <a href="https://braincotech.github.io/RevoSim-web/">Project Page</a>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="paper">
                     <div class="paper-thumb">
@@ -371,10 +490,10 @@
                     <div class="paper-body">
                         <h3 class="paper-title">ViTaMIn-B: A Reliable and Efficient Visuo-Tactile Bimanual Manipulation Interface</h3>
                         <p class="paper-authors"><strong>Chuanyu Li</strong>*, Chaoyi Liu*, Daotan Wang, Shuyu Zhang, Lusong Li, Zecui Zeng, Fangchen Liu, Jing Xu, Rui Chen</p>
-                        <span class="paper-venue">Preprint</span>
+                        <span class="paper-venue">2025 · Preprint</span>
                         <div class="paper-links">
-                            <a href="https://arxiv.org/abs/2511.05858">Paper</a>
-                            <a href="https://github.com/chuanyune/ViTaMIn-B_code?tab=readme-ov-file">Code</a>
+                            <a href="https://arxiv.org/abs/2511.05858">arXiv</a>
+                            <a href="https://github.com/chuanyune/ViTaMIn-B_code">Code</a>
                             <a href="https://chuanyune.github.io/ViTaMIn-B_page/">Project Page</a>
                         </div>
                     </div>
@@ -385,23 +504,15 @@
                         <img src="images/pubs/vitamin.png" alt="ViTaMIn">
                     </div>
                     <div class="paper-body">
-                        <h3 class="paper-title">ViTaMIn: Learning Contact-Rich Tasks Through Portable Visuotactile Manipulation Interface</h3>
+                        <h3 class="paper-title">ViTaMIn: Learning Contact-Rich Tasks Through Robot-Free Visuo-Tactile Manipulation Interface</h3>
                         <p class="paper-authors">Fangchen Liu*, <strong>Chuanyu Li</strong>*, Yihua Qin, Jing Xu, Pieter Abbeel, Rui Chen</p>
-                        <span class="paper-venue">Preprint</span>
+                        <span class="paper-venue">2025 · Preprint</span>
                         <div class="paper-links">
-                            <a href="https://arxiv.org/abs/2504.06156">Paper</a>
+                            <a href="https://arxiv.org/abs/2504.06156">arXiv</a>
                             <a href="https://chuanyune.github.io/ViTaMIn_page/">Project Page</a>
                         </div>
                     </div>
                 </div>
-
-            </div>
-        </section>
-
-        <section>
-            <h2 class="section-title">Projects</h2>
-
-            <div class="paper-list">
 
                 <div class="paper">
                     <div class="paper-thumb cover">
@@ -410,10 +521,9 @@
                     <div class="paper-body">
                         <h3 class="paper-title">ManiSkill-ViTac 2025: Challenge on Manipulation Skill Learning with Vision and Tactile Sensing</h3>
                         <p class="paper-authors"><strong>Chuanyu Li</strong>, Renjun Dang, Xiang Li, Zhiyuan Wu, Jing Xu, Hamidreza Kasaei, Roberto Calandra, Nathan Lepora, Shan Luo, Hao Su, Rui Chen</p>
-                        <span class="paper-venue conf">ICRA 2025</span>
-                        <span class="paper-venue" style="margin-left:4px;">Technical Report</span>
+                        <span class="paper-venue">ICRA 2025 Workshop · Technical report</span>
                         <div class="paper-links">
-                            <a href="https://arxiv.org/abs/2411.12503">Paper</a>
+                            <a href="https://arxiv.org/abs/2411.12503">arXiv</a>
                             <a href="https://ai-workshops.github.io/maniskill-vitac-challenge-2025/">Project Page</a>
                             <a href="https://github.com/chuanyune/ManiSkill-ViTac2025">Code</a>
                         </div>
@@ -427,7 +537,7 @@
                     <div class="paper-body">
                         <h3 class="paper-title">ManiSkill-ViTac: Vision-based Tactile Manipulation Skill Learning Challenge 2024</h3>
                         <p class="paper-authors">ICRA 2024 Workshop · Challenge Organizer</p>
-                        <span class="paper-venue conf">ICRA 2024</span>
+                        <span class="paper-venue">ICRA 2024 Workshop</span>
                         <div class="paper-links">
                             <a href="https://ai-workshops.github.io/maniskill-vitac-challenge-2024/">Project Page</a>
                             <a href="https://github.com/callmeray/ManiSkill-ViTac2024">Code</a>
@@ -438,17 +548,17 @@
             </div>
         </section>
 
-        <section>
-            <h2 class="section-title">Experience</h2>
+        <section id="experience" aria-labelledby="experience-title">
+            <h2 class="section-title" id="experience-title">Experience</h2>
 
             <div class="edu-list">
 
                 <div class="edu-item">
-                    <img class="exp-logo" src="images/profile/sudo_ai_icon.svg" alt="Sudo AI">
+                    <img class="exp-logo" src="images/profile/BrainCo_hd.png" alt="BrainCo">
                     <div class="edu-body">
-                        <div class="edu-school">Sudo AI</div>
-                        <div class="edu-degree">Intern</div>
-                        <div class="edu-year">2025 – 2025</div>
+                        <div class="edu-school">BrainCo</div>
+                        <div class="edu-degree">Tactile Sensing Lead</div>
+                        <div class="edu-year">2026 – Present</div>
                     </div>
                 </div>
 
@@ -462,30 +572,21 @@
                 </div>
 
                 <div class="edu-item">
-                    <img class="exp-logo" src="images/profile/BrainCo_hd.png" alt="BrainCo">
+                    <img class="exp-logo" src="images/profile/sudo_ai_icon.svg" alt="Sudo AI">
                     <div class="edu-body">
-                        <div class="edu-school">BrainCo</div>
-                        <div class="edu-degree">Tactile Sensing Lead</div>
-                        <div class="edu-year">2026 – Present</div>
+                        <div class="edu-school">Sudo AI</div>
+                        <div class="edu-degree">Intern</div>
+                        <div class="edu-year">2025</div>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <section>
-            <h2 class="section-title">Education</h2>
+        <section id="education" aria-labelledby="education-title">
+            <h2 class="section-title" id="education-title">Education</h2>
 
             <div class="edu-list">
-
-                <div class="edu-item">
-                    <img class="edu-logo" src="images/profile/Sichuan_University.png" alt="Sichuan University">
-                    <div class="edu-body">
-                        <div class="edu-school"><a href="https://www.scu.edu.cn/">Sichuan University</a></div>
-                        <div class="edu-degree">B.S. in Mechanical Engineering</div>
-                        <div class="edu-year">2021 – 2025</div>
-                    </div>
-                </div>
 
                 <div class="edu-item">
                     <img class="edu-logo" src="images/profile/Tsinghua_University.png" alt="Tsinghua University">
@@ -496,10 +597,33 @@
                     </div>
                 </div>
 
+                <div class="edu-item">
+                    <img class="edu-logo" src="images/profile/Sichuan_University.png" alt="Sichuan University">
+                    <div class="edu-body">
+                        <div class="edu-school"><a href="https://www.scu.edu.cn/">Sichuan University</a></div>
+                        <div class="edu-degree">B.S. in Mechanical Engineering</div>
+                        <div class="edu-year">2021 – 2025</div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
     </main>
 
+    <script>
+        const workMenu = document.querySelector('.work-menu');
+        document.addEventListener('click', (event) => {
+            if (!workMenu.contains(event.target) || event.target.closest('a')) {
+                workMenu.open = false;
+            }
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && workMenu.open) {
+                workMenu.open = false;
+                workMenu.querySelector('summary').focus();
+            }
+        });
+    </script>
 </body>
 </html>
